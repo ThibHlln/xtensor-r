@@ -43,7 +43,7 @@ test_that("call_lgl", {
 })
 
 test_that("call_lgl_tensor", {
-  call_lgl(x)
+  call_lgl_tensor(x)
   expect_equal(x[2, 2], FALSE)
 })
 
