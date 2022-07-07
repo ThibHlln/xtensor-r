@@ -42,6 +42,11 @@ test_that("call_lgl", {
   expect_equal(x[2, 2], FALSE)
 })
 
+test_that("call_lgl_tensor", {
+  call_lgl(x)
+  expect_equal(x[2, 2], FALSE)
+})
+
 x <- array(as.complex(1:10), c(2, 5))
 
 x[1, 1] <- 0 + 1i

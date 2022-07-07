@@ -11,6 +11,7 @@
 // [[Rcpp::depends(xtensor)]]
 
 #include "xtensor-r/rcontainer.hpp"
+#include "xtensor-r/rtensor.hpp"
 #include "xtensor-r/rarray.hpp"
 #include "xtensor/xmath.hpp"
 #include "xtensor/xio.hpp"
@@ -59,6 +60,18 @@ int call_lgl(xt::rarray<rlogical>& x)
     x(1, 1) = 0;
     return 1;
 }
+
+// bug? ------------------------------------------------------------------------
+
+// [[Rcpp::export]]
+int cpp_lgl_tensor(xt::rtensor<rlogical, 2>& x)
+{
+  xassert(x(0, 0) == 1);
+  x(1, 1) = 0;
+  return 1;
+}
+
+// -----------------------------------------------------------------------------
 
 // [[Rcpp::export]]
 int call_stdcomplex(xt::rarray<std::complex<double>>& x)
